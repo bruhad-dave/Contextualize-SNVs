@@ -16,7 +16,7 @@ for file in $inpath/*.txt
     do
         base=`basename $file _dedup.filt.genann.txt`
         echo $base
-        /usr/local/bin/python3 $repopath/stack_genes_v4.py -n $nbins -i $file -s $base -a $gtf_file -o $outpath
+        /usr/local/bin/python3 $repopath/stack_genes.py -n $nbins -i $file -s $base -a $gtf_file -o $outpath
         echo $base Done
     done
 

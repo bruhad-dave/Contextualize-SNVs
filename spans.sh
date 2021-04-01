@@ -1,4 +1,4 @@
-repopath="/Users/bruhaddave/Desktop/Analysis_Output/Repository"
+repopath=`pwd`/scripts
 
 echo "Input folder: "
 read inpath

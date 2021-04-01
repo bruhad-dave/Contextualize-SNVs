@@ -23,7 +23,7 @@ for file in $inpath/*.txt
     do
         base=`basename $file _dedup.filt.genann.txt`
         echo $base
-        $pypath $repopath/get_span_v2.py -n $span -i $file -s $base
+        $pypath $repopath/get_spans.py -n $span -i $file -s $base
     done
 
 for spans in $outpath/*.span_file.txt

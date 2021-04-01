@@ -38,7 +38,7 @@ for sp_files in $outpath/*.spans.txt
     do
         basenext=`basename $sp_files .spans.txt`
         echo $basenext
-        /usr/local/bin/python3 $repopath/span_analysis.py -i $sp_files -s $basenext -o ./span_analysis
+        $pypath $repopath/span_analysis.py -i $sp_files -s $basenext -o ./span_analysis
     done
 
 mkdir txt_files

@@ -1,4 +1,4 @@
-repopath=`pwd`/scripts/
+repopath=`pwd`/scripts
 
 echo "Input folder: "
 read inpath

@@ -1,5 +1,5 @@
 # Contextualize-SNVs
-A set of tools which can be used to put single-nucleotide variations (SNVs) in context. Includes *stack_genes.py, get_spans.py and get_freq.py*. These scripts were used to generate the analysis presented in >Pervasive_SNVs_Publcation<. Data input(s) are tab-separated tabular files.
+A set of tools which can be used to put single-nucleotide variations (SNVs) in context. Includes *stack_genes.py, get_spans.py and get_freq.py*. These scripts were used to perform the analysis and generate the figures presented in the publication titled "Exceptionally high sequence-level variation in the transcriptome of Plasmodium falciparum" (preprint@ https://www.biorxiv.org/content/10.1101/2021.05.14.444266v1). Data input(s) are tab-separated tabular files.
 
 # stack_genes.py
 
@@ -44,10 +44,23 @@ Other scripts in this repository include:
 - REDI_filter.sh: filters REDItools2.0 output files
 - run_snpEff.sh: runs snpEff on a folder containing input files (which may be generated from REDItools2.0 output using REDI_2_snpEff.in.sh)
 
-# Scripts in utilities
-- get_AT_richness.py: returns the AT-richness of each fasta record in a CDS file in tabular format
-- snpSift.sh: returns a VCF-like file with easily readable information about amino-acid changes
-- 
+# Scripts in /utilities/
+- get_at_richness.py: returns the AT-richness of each fasta record in a CDS file in tabular format
+- snpSift.sh: returns a VCF-like file with easily readable information about amino acid changes
+- amino_acid_viz.py: a script that plots three kinds of visualizations representing amino acid changes, a heatmap of type-changes (eg. Acidic to Basic etc), a heatmap of amino acid changes (eg. Gly to Pro, etc), and a clutermap of amino acid changes; Requires output from snpSift.sh as input
 
+# Scripts in /plotting/
+- barplots.py: contains the code used to generate the barplots presented in this work
+- scatterplots.py: contains the code used to generate the scatterplots in the supplementary materials associated with this work
+
+# The scripts in this repository depend on/import
+- Python 3.8
+- Pandas
+- Matplotlib
+- Biopython
+- Numpy
+- Seaborn
+- snpEff and snpSift
+- argparse, sys, os
 
 

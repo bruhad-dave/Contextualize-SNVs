@@ -1,5 +1,5 @@
 # Contextualize-SNVs
-A set of tools which can be used to put single-nucleotide variations (SNVs) in context. Includes *stack_genes.py, get_spans.py and get_freq.py*. These scripts were used to perform the analysis and generate the figures presented in the publication titled "Exceptionally high sequence-level variation in the transcriptome of Plasmodium falciparum" (preprint@ https://www.biorxiv.org/content/10.1101/2021.05.14.444266v1). Data input(s) are tab-separated tabular files.
+A set of tools which can be used to put single-nucleotide variations (SNVs) in context. Includes *stack_genes.py, get_spans.py and get_freq.py*. These scripts were used to perform the analysis and generate the figures presented in the work titled "Exceptionally high sequence-level variation in the transcriptome of Plasmodium falciparum" (preprint@ https://www.biorxiv.org/content/10.1101/2021.05.14.444266v1). Data input(s) are tab-separated tabular files.
 
 # stack_genes.py
 

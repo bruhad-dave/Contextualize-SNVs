@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import argparse
 import csv
 
-##parsing arguments
+## parsing arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nbins", type=int, help="The number of bins to divide each gene into")
 parser.add_argument("-i", "--infile", help="Input file containing SNV data")
@@ -36,7 +36,7 @@ if not OUT_DIR:
     OUT_DIR = "./"
 
 ##
-#initializing variables
+## initializing variables
 chr_no = 14 ## change this based on your organism of interest
 total_hists = []
 bin_sizes = []
@@ -55,7 +55,7 @@ def stack_genes(file, bin_no, ann_file): ## function that does the heavy lifting
     nc_list = list(map(int, pos_dict["-"]))
     print(len(nc_list))
 
-    #import reference data
+    ## import reference data
 
     gtf_data = pd.read_csv(ann_file, sep=",", header=0)
     num_genes = len(np.unique(gtf_data["GeneID"]))
@@ -150,7 +150,7 @@ try:
 except FileExistsError:
     pass
 
-##split initial data file by chromosome number
+## split initial data file by chromosome number
 with open(infile) as datafile:
     data_reader = pd.read_csv(infile, sep= "\t", header = 0)
 
@@ -161,7 +161,7 @@ for chr_no in range (1, chr_no+1):
     else:
         filename.to_csv(tmp_path+sample+"chr"+str(chr_no)+".txt", index = False, sep= '\t')
 
-##run stack_genes on the split files
+## run stack_genes on the split files
 with open(OUT_DIR+sample+"stats_file.txt", "a", newline="") as stats:
     fields = ["Chr","#Unannotated Hits", "#Genes Processed"]
     stat_writer = csv.DictWriter(stats, fieldnames= fields, delimiter = "\t")
@@ -192,7 +192,7 @@ plt.xticks(fontsize = 8, rotation = 90, ha="center", weight = 'bold')
 plt.savefig(OUT_DIR+"/"+sample+"_SNV_graph.jpg")
 #plt.show()
 
-##tabular record of plot data
+## tabular record of plot data
 plot_data = dict(zip(bins, avg_total_hist_list))
 plot_df = pd.DataFrame.from_dict(data = plot_data, orient="index")
 plot_df.reset_index(inplace=True)

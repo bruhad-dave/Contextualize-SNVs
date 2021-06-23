@@ -1,3 +1,4 @@
+## importing
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -5,6 +6,7 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 
+## parsing arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--infile", help="Input file containing SNV data")
 parser.add_argument("-s", "--sample", help="The name of the sample (will be applied to any output files)")
@@ -29,6 +31,7 @@ for i in spans[0]:
 print(len(loci))
 print(len(nuc))
 
+## this function extracts flanks and outputs them in workable format (focal nucleotide:left flank-right flank)
 def typify(s):
     mid_index = int((len(s)-1)/2)
     focal = s[mid_index]
@@ -57,6 +60,7 @@ del_df.columns = ["Focal:Flank", "Count"]
 del_df[["Focal", "Flank"]] = del_df["Focal:Flank"].str.split(":", n = 1, expand = True)
 #print(del_df.head(5))
 
+## plotting
 ax = plt.axes()
 ax.set_facecolor("cornflowerblue")
 subset = del_df[del_df["Count"] >= 150]

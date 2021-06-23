@@ -44,5 +44,10 @@ Other scripts in this repository include:
 - REDI_filter.sh: filters REDItools2.0 output files
 - run_snpEff.sh: runs snpEff on a folder containing input files (which may be generated from REDItools2.0 output using REDI_2_snpEff.in.sh)
 
+# Scripts in utilities
+- get_AT_richness.py: returns the AT-richness of each fasta record in a CDS file in tabular format
+- snpSift.sh: returns a VCF-like file with easily readable information about amino-acid changes
+- 
+
 
 

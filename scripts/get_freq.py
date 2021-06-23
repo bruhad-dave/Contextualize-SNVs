@@ -4,14 +4,14 @@ import sys, os
 import pandas as pd
 from collections import defaultdict
 
-#taking input
+## taking input
 in_file = input("Input filepath: ") # the file from which frequencies are to be collected
 
 outfile = input("Output filepath: ") # the file to which all the stuff will be written
 
 ann_file = input("Annotation file: ") # the file in which gene data and lengths are stored
 
-# creating a list of gene IDs from ann_file; and a dict with all data from ann_file
+## creating a list of gene IDs from ann_file; and a dict with all data from ann_file
 with open (ann_file, "r", newline= "") as ann:
     ann_reader = csv.DictReader(ann, delimiter = "\t") ## change the "\t" to "," if your annotation file is comma-separated
     gene_list = []
@@ -31,7 +31,7 @@ alt_ann_dict = dict(zip(gene_list, length_list))
 #print("next dict")
 ann.close()
 
-# calculating frequecies of each gene
+## calculating frequecies of each gene
 with open (in_file, "r", newline = "") as snv_file:
     in_filereader = csv.DictReader(snv_file, delimiter = "\t")
     snv_list = []
@@ -50,7 +50,7 @@ freq_vals = counts.tolist()
 freq_dict = dict(zip(freq_keys, freq_vals))
 #print(freq_dict)
 
-# matching gene to gene frequency
+## matching gene to gene frequency
 len_freq_dict = {}
 for key_freq, freq in freq_dict.items():
     for key_len, len_value in alt_ann_dict.items():

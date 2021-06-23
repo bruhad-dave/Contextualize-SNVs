@@ -2,7 +2,7 @@
 import csv
 import argparse
 
-##arguments
+## arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--spanlen", type=int, help="The number of nucleotides to extract")
 parser.add_argument("-i", "--infile", help="Input file containing SNV data")

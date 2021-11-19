@@ -66,7 +66,6 @@ Other scripts in this repository include:
 - Python 3.8 
 - Pandas
 - Matplotlib
-- Biopython
 - Numpy
 - Seaborn
 - snpEff and snpSift

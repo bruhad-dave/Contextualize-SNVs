@@ -1,4 +1,4 @@
-## wraps around get_span_v2.py, samtools, and get_span_strcorr.py
+## wraps around get_span_v2.py, samtools, get_span_strcorr.py, and span_analysis_v2.py
 repopath=`pwd`/scripts
 
 echo "Input folder: "

@@ -57,6 +57,7 @@ Other scripts in this repository include:
 - get_at_richness.py: returns the AT-richness of each fasta record in a CDS file in tabular format
 - snpSift.sh: returns a VCF-like file with easily readable information about amino acid changes
 - amino_acid_viz.py: a script that plots three kinds of visualizations representing amino acid changes, a heatmap of type-changes (eg. Acidic to Basic etc), a heatmap of amino acid changes (eg. Gly to Pro, etc), and a clutermap of amino acid changes; Requires output from snpSift.sh as input. Used to generate Figure 2D and Figure S7.
+- do_htseq.sh: wraps around htseq (https://htseq.readthedocs.io/en/master/)
 
 # Scripts in /plotting/
 - barplots.py: contains the code used to generate the barplots presented in this work

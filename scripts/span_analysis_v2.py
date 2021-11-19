@@ -1,0 +1,55 @@
+## this version of span_analysis is tweaked to fit the workflow wrapped by spans_v2.sh
+## importing
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import argparse
+import os
+
+## parsing arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--infile", help="Input file containing SNV data")
+parser.add_argument("-s", "--sample", help="The name of the sample (will be applied to any output files)")
+parser.add_argument("-o", "--outpath", help="Folder where output heatmaps will be generated")
+args = parser.parse_args()
+sample = args.sample
+infile = args.infile
+outpath = args.outpath
+out = os.path.abspath(outpath)
+
+## this function extracts flanks and outputs them in workable format (focal nucleotide:left flank-right flank)
+def typify(s):
+    mid_index = int((len(s)-1)/2)
+    focal = s[mid_index]
+    front = s[0:mid_index]
+    back = s[(mid_index+1):]
+    return(focal+":"+front+"-"+back)
+
+span_df = pd.read_csv(infile, sep = "\t", header = 0)
+
+span_df["Focal:Flank"] = span_df.apply(lambda row : typify(row["SpansStrandCorr"]), axis = 1)
+delt, flank = np.unique(span_df["Focal:Flank"], return_counts= True)
+del_dict = dict(zip(delt, flank))
+#print(span_df.head(5))
+#print(del_dict)
+del_df = pd.DataFrame.from_dict(del_dict, orient="index")
+del_df.reset_index(inplace=True)
+del_df.columns = ["Focal:Flank", "Count"]
+
+#print(del_df.head(5))
+
+del_df[["Focal", "Flank"]] = del_df["Focal:Flank"].str.split(":", n = 1, expand = True)
+#print(del_df.head(5))
+
+## plotting
+ax = plt.axes()
+ax.set_facecolor("cornflowerblue")
+subset = del_df[del_df["Count"] >= 150]
+sub_map = subset.pivot("Flank", "Focal", "Count")
+sns.heatmap(sub_map, vmin=0, vmax=800, linewidths=.5, cmap = "icefire", annot=True, fmt="n", annot_kws={"fontsize":6}, yticklabels=1)
+plt.savefig(out+"/"+sample+"_spans.svg", format="svg")
+plt.savefig(out+"/"+sample+"_spans.png", format="png")
+#plt.show()
+
+## done, hopefully

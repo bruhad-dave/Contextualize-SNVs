@@ -60,8 +60,7 @@ Other scripts in this repository include:
 - do_htseq.sh: wraps around htseq (https://htseq.readthedocs.io/en/master/)
 
 # Scripts in /plotting/
-- barplots.py: contains the code used to generate the barplots presented in this work
-- scatterplots.py: contains the code used to generate the scatterplots in the supplementary materials associated with this work
+- scripts used to generate the figures presented in the manuscript.
 
 # The scripts in this repository depend on/import
 - Python 3.8 
